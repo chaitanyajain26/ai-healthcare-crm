@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: helixcrm-ai-backend
+    env: docker
+    rootDir: backend
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: helixcrm
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PRIMARY_MODEL
+        value: gemma2-9b-it
+      - key: SECONDARY_MODEL
+        value: llama-3.3-70b-versatile
+      - key: CORS_ORIGINS
+        sync: false
